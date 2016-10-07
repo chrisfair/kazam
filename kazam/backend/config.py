@@ -111,7 +111,7 @@ class KazamConfig(ConfigParser):
                     if d_key == key:
                         return d_section["keys"][key]
 
-    def get(self, section, key):
+    def get(self, section, key,raw=True,fallback='rest'):
         try:
             ret = ConfigParser.get(self, section, key)
             if ret == "None":
