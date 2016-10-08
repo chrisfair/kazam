@@ -111,8 +111,10 @@ class KazamConfig(ConfigParser):
                     if d_key == key:
                         return d_section["keys"][key]
 
-    def get(self, section, key,raw=True,fallback='rest'):
+    def get(self, section, key,raw=True,fallback=0):
         try:
+            return super(KazamConfig,self).get(section, key, raw=raw,
+                    fallback=fallback)
             ret = ConfigParser.get(self, section, key)
             if ret == "None":
                 default = self.find_default(section, key)
