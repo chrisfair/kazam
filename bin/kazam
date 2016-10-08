@@ -35,10 +35,10 @@ gi.require_version("GUdev", "1.0")
 from gi.repository import Gtk
 
 
+
 class KazamService(dbus.service.Object):
 
     def __init__(self, app):
-        sys.setrecursionlimit(100000)
         self.app = app
         bus_name = dbus.service.BusName('org.kazam', bus=dbus.SessionBus())
         dbus.service.Object.__init__(self, bus_name, "/org/kazam")
@@ -54,6 +54,7 @@ class KazamService(dbus.service.Object):
 
 if __name__ == "__main__":
 
+    exit
     logger = logging.getLogger()
     logger.name = "Kazam"
     handler = logging.StreamHandler()
