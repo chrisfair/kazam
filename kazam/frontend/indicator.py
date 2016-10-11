@@ -24,6 +24,9 @@ import logging
 logger = logging.getLogger("Indicator")
 
 from gettext import gettext as _
+import gi
+gi.require_version('AppIndicator3', '0.1')
+gi.require_version('Keybinder', '3.0')
 from gi.repository import Gtk, GObject, GLib
 
 from kazam.backend.prefs import *
